@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>❤️ FELIZ DÍA AMOR MÍO ❤️</title>
+
+<style>
+body {
+    margin: 0;
+    font-family: 'Arial', sans-serif;
+    text-align: center;
+    background: linear-gradient(to bottom, #ffffff, #b30000);
+
+
+    overflow-x: hidden;
+}
+
+.container {
+    margin-top: 100px;
+    padding: 20px;
+}
+
+h1 {
+    color: #ff0000;
+
+}
+
+button {
+    padding: 15px 25px;
+    font-size: 16px;
+    border: none;
+    border-radius: 12px;
+    cursor: pointer;
+    margin: 10px;
+    transition: 0.3s;
+}
+
+#si {
+    background-color: #ff0000;
+
+}
+
+#no {
+    background-color: white;
+    color: #b30000;
+    position: absolute;
+}
+
+.final {
+    margin-top: 80px;
+    font-size: 20px;
+    .final {
+    color: #b30000;
+}
+
+}
+
+.heart {
+    position: fixed;
+    bottom: -20px;
+    font-size: 24px;
+    animation: float 5s linear infinite;
+}
+
+@keyframes float {
+    0% { transform: translateY(0); opacity:1; }
+    100% { transform: translateY(-800px); opacity:0; }
+}
+</style>
+</head>
+
+<body>
+
+<div class="container" id="inicio">
+    <h1>❤️ Hoy es Nuestro Día ❤️</h1>
+    <p>
+        Pues no es solo San Valentín… ❤️🌹<br>
+        También es nuestro cumplemes 🎉❤️<br><br>
+        Y tengo algo que preguntarte…
+    </p>
+
+    <h2>¿Quieres seguir celebrando la vida conmigo? </h2>
+
+    <button id="si" onclick="respuestaSi()">❤️ SÍ, SIEMPRE ❤️</button>
+    <button id="no">No 🙈</button>
+</div>
+
+<script>
+// ---------------- BOTÓN QUE HUYE ----------------
+const botonNo = document.getElementById("no");
+
+botonNo.addEventListener("mouseover", function() {
+    const x = Math.random() * (window.innerWidth - 120);
+    const y = Math.random() * (window.innerHeight - 60);
+    botonNo.style.left = x + "px";
+    botonNo.style.top = y + "px";
+});
+
+// ---------------- RESPUESTA SI ----------------
+function respuestaSi() {
+
+    const fechaInicio = new Date("2018-05-14"); // CAMBIA TU FECHA
+    const hoy = new Date();
+    const diferencia = hoy - fechaInicio;
+    const dias = Math.floor(diferencia / (1000 * 60 * 60 * 24));
+
+
+    document.body.innerHTML = `
+        <div class="final">
+            <h1>❤️ Feliz San Valentín y Feliz CumpleMes ❤️</h1>
+
+            <p>
+            Llevamos ${dias} días escribiendo nuestra historia ✨<br><br>
+
+            Gracias por amarme.<br>
+            Gracias por cuidarme.<br>
+            Gracias por estar y ser.<br><br>
+
+            Prometo seguir construyendo contigo,<br>
+            incluso en los días grises.<br><br>
+
+            Te amo hasta los huesos ❤️
+            </p>
+
+            <button onclick="mostrarCarta()">💌 Abrir</button>
+        </div>
+    `;
+
+    corazones();
+}
+
+// ---------------- CARTA SECRETA ----------------
+function mostrarCarta() {
+    alert("Eres mi lugar seguro.\nMi paz.\nMi alegría.\nMi mejor decisión.\nQuedate para siempre.\n\nGracias por estar en mi vida ❤️");
+}
+
+// ---------------- CORAZONES ----------------
+function corazones() {
+    setInterval(() => {
+        const heart = document.createElement("div");
+        heart.classList.add("heart");
+        heart.innerHTML = "💖";
+        heart.style.left = Math.random() * 100 + "vw";
+        document.body.appendChild(heart);
+
+        setTimeout(() => {
+            heart.remove();
+        }, 5000);
+    }, 300);
+}
+</script>
+
+</body>
+</html>
